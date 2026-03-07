@@ -1,0 +1,131 @@
+[00:00:00.626] Server  LOG     ✓ Ready in 452ms
+[00:01:39.270] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:39.467] Browser WARN    Image with src "/images/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:01:39.467] Browser WARN    Image with src "/images/logo.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:01:45.722] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:45.841] Browser WARN    Image with src "/images/logo.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:01:45.841] Browser WARN    Image with src "/images/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:01:55.946] Server  LOG     ✓ Compiled in 19ms
+[00:01:58.545] Server  LOG     ✓ Compiled in 30ms
+[00:02:00.758] Server  LOG     ✓ Compiled in 16ms
+[00:02:02.627] Server  LOG     ✓ Compiled in 16ms
+[00:02:10.449] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:10.574] Browser WARN    Image with src "/images/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:02:10.574] Browser WARN    Image with src "/images/logo.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:02:26.635] Server  LOG     ✓ Compiled in 25ms
+[00:02:37.994] Server  LOG     ✓ Compiled in 22ms
+[00:02:49.391] Server  LOG     ✓ Compiled in 14ms
+[00:03:05.170] Server  LOG     ✓ Compiled in 39ms
+[00:03:21.539] Server  LOG     ✓ Compiled in 23ms
+[00:14:24.922] Server  LOG     ✓ Compiled in 37ms
+[00:15:16.310] Server  LOG     ✓ Compiled in 37ms
+[00:15:57.558] Server  LOG     ✓ Compiled in 31ms
+[00:16:46.620] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:16:46.773] Browser WARN    Image with src "/images/logo.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:16:46.773] Browser WARN    Image with src "/images/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:16:52.340] Server  LOG     ✓ Compiled in 27ms
+[00:16:54.193] Server  LOG     ✓ Compiled in 31ms
+[00:16:55.776] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:16:55.894] Browser WARN    Image with src "/images/logo.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:16:55.894] Browser WARN    Image with src "/images/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:17:06.548] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:17:06.672] Browser WARN    Image with src "/images/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:17:06.672] Browser WARN    Image with src "/images/logo.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:17:29.808] Server  ERROR   ⨯ ReferenceError: Hero is not defined
+[00:17:29.961] Browser ERROR   uncaughtError: ReferenceError: Hero is not defined
+[00:17:31.718] Server  ERROR   ⨯ Error: Image with src "/images/hero.jpg" is missing required "width" property.
+[00:17:32.101] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:17:32.403] Browser ERROR   uncaughtError: Error: Image with src "/images/hero.jpg" is missing required "width" property.
+[00:17:40.347] Server  LOG     ✓ Compiled in 75ms
+[00:17:40.700] Server  ERROR   ⨯ Error: Image with src "/images/hero.jpg" is missing required "width" property.
+[00:17:40.994] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:17:41.264] Browser ERROR   uncaughtError: Error: Image with src "/images/hero.jpg" is missing required "width" property.
+[00:17:53.316] Server  ERROR   ⨯ Error: Image with src "/images/hero.jpg" is missing required "width" property.
+[00:17:53.720] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:17:54.039] Browser ERROR   uncaughtError: Error: Image with src "/images/hero.jpg" is missing required "width" property.
+[00:18:12.061] Server  ERROR   ⨯ Error: Image with src "/images/hero/hero-1.jpg" is missing required "width" property.
+[00:18:12.422] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:12.666] Browser ERROR   uncaughtError: Error: Image with src "/images/hero/hero-1.jpg" is missing required "width" property.
+[00:18:15.898] Server  ERROR   ⨯ Error: Image with src "/images/hero.jpg" is missing required "width" property.
+[00:18:16.286] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:16.511] Browser ERROR   uncaughtError: Error: Image with src "/images/hero.jpg" is missing required "width" property.
+[00:18:16.728] Server  ERROR   ⨯ Error: Image with src "/images/hero.jpg" is missing required "width" property.
+[00:18:17.153] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:17.387] Browser ERROR   uncaughtError: Error: Image with src "/images/hero.jpg" is missing required "width" property.
+[00:18:22.751] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:23.022] Browser WARN    Image with src "/images/logo.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:18:23.022] Browser WARN    Image with src "/images/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:18:23.022] Browser WARN    Image with src "/images/hero.jpg" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+[00:18:25.226] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:25.617] Browser WARN    Image with src "/images/logo.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:18:25.617] Browser WARN    Image with src "/images/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:18:25.617] Browser WARN    Image with src "/images/hero.jpg" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+[00:18:35.488] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:35.788] Browser WARN    Image with src "/images/logo.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:18:35.788] Browser WARN    Image with src "/images/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:18:35.788] Browser WARN    Image with src "/images/hero.jpg" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+[00:18:43.389] Browser WARN    Image with src "/images/hero.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:18:55.495] Server  LOG     ✓ Compiled in 26ms
+[00:18:55.599] Browser ERROR   ./components/homeSections/Hero.tsx:10:32
+Parsing ecmascript source code failed
+   8 |                     <Image src="/images/hero.jpg" alt="Hero Image" fill className="object-contain" />
+   9 |                 </div>
+> 10 |                 <div className="basis-1
+     |                                ^^^^^^^^
+> 11 |         </section>
+     | ^^^^^^^^^^^^^^^^^^
+> 12 |     )
+     | ^^^^^^^^^^^^^^^^^^
+> 13 | }
+     | ^^^^^^^^^^^^^^^^^^
+> 14 |
+     | ^
+
+Unterminated string constant
+
+Import trace:
+  Server Component:
+    ./components/homeSections/Hero.tsx
+    ./app/page.tsx
+[00:19:01.394] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:01.740] Browser WARN    Image with src "/images/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:19:01.740] Browser WARN    Image with src "/images/hero.jpg" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+[00:19:13.137] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:13.479] Browser WARN    Image with src "/images/logo.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:19:13.479] Browser WARN    Image with src "/images/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:19:13.479] Browser WARN    Image with src "/images/hero.jpg" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+[00:20:09.051] Browser WARN    Image with src "/images/hero.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:20:14.651] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:14.962] Browser WARN    Image with src "/images/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:20:14.962] Browser WARN    Image with src "/images/hero.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:20:52.680] Server  LOG     ✓ Compiled in 92ms
+[00:20:54.694] Server  LOG     ✓ Compiled in 25ms
+[00:21:10.756] Server  LOG     ✓ Compiled in 28ms
+[00:21:21.162] Server  LOG     ✓ Compiled in 24ms
+[00:22:14.913] Browser WARN    Image with src "/images/hero.jpg" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+[00:27:29.949] Server  LOG     ✓ Compiled in 45ms
+[00:27:45.843] Server  LOG     ✓ Compiled in 77ms
+[00:27:58.799] Server  LOG     ✓ Compiled in 2ms
+[00:28:06.862] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:28:07.028] Browser WARN    Image with src "/images/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:28:14.967] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:28:15.093] Browser WARN    Image with src "/images/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:35:31.513] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:35:31.675] Browser WARN    Image with src "/images/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:36:53.126] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:36:53.260] Browser WARN    Image with src "/images/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:38:09.331] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:38:09.460] Browser WARN    Image with src "/images/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:38:41.467] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:38:41.593] Browser WARN    Image with src "/images/logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
