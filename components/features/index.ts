@@ -2,4 +2,4 @@
 
 export { Header } from "./header";
 export { Footer } from "./footer";
-export { Login } from "./login";
+export { LoginForm } from "./login";

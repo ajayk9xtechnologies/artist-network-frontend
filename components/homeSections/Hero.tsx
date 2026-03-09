@@ -1,31 +1,33 @@
-import Image from "next/image";
-import { Login } from "@/components/features/login";
-
+import { LoginForm } from "@/components/features";
+import hero from "@/public/images/hero.jpg";
+import { PixelImage } from "@/components/ui/pixel-image"
+import { AuroraText } from "@/components/ui/aurora-text"
 export default function Hero() {
-  return (
-    <section className="grid min-h-[calc(100vh-3.5rem)] w-full grid-cols-1 lg:grid-cols-2">
-      {/* Left: hero image (col-6) – shadow follows PNG shape, not a square */}
-      <div className="relative flex min-h-[40vh] items-center justify-center bg-muted/30 lg:min-h-full">
-        <div className="relative h-full min-h-[40vh] w-full lg:min-h-0">
-          <Image
-            src="/images/hero.png"
-            alt="Hero"
-            fill
-            className="object-contain object-center [filter:drop-shadow(0_25px_50px_rgba(220,38,38,0.4))]"
-            priority
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
+    return (
+        <div className="flex h-[calc(100dvh-80px)] bg-background w-full">
+            <div className="relative hidden items-center justify-center p-12 lg:flex lg:w-[70%]">
+                <div className="relative z-20 w-full max-w-3xl">
+                    {/* <Image
+                        src={hero} width={500} height={500}
+                        alt="Creative art collage with music and entertainment"
+                        className="w-full rounded-3xl shadow-2xl shadow-primary/10"
+                    /> */}
+                    <PixelImage
+                        src={hero.src}
+                    />
+                </div>
+
+                <div className="absolute bottom-12 left-12 z-20 max-w-md">
+                    <h1>
+                        Discover verified artists and venues for your{" "}
+                        <AuroraText className="pb-10">Next Event</AuroraText>.
+                    </h1>
+                </div>
+            </div>
+
+            <div className="flex w-full lg:w-[30%] items-center justify-center p-6 sm:p-12 bg-[#333]/4 dark:bg-[#333]/30">
+                <LoginForm />
+            </div>
         </div>
-        <div className="absolute inset-0 flex flex-col justify-center px-8 py-12 lg:px-12">
-          <h1 className="text-3xl font-bold tracking-tight text-foreground drop-shadow-md sm:text-4xl lg:text-5xl">
-            Connect with artists. Share your work.
-          </h1>
-        </div>
-      </div>
-      {/* Right: login (col-6) */}
-      <div className="flex flex-col bg-background">
-        <Login />
-      </div>
-    </section>
-  );
+    );
 }
