@@ -1,3 +1,3 @@
 // Pure helper functions (formatting, validation, etc.)
 
-export {};
+export { countryCodes } from "./country-codes.json";

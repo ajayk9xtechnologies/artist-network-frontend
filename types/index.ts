@@ -1,3 +1,7 @@
 // Shared TypeScript types and interfaces
-
-export {};
+interface LoginWithPasswordServiceProps {
+    email?: string;
+    phone?: string;
+    password: string;
+}
+export type { LoginWithPasswordServiceProps };
