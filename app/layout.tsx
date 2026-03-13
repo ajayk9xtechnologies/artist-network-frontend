@@ -3,6 +3,7 @@ import { Geist_Mono, Inter, Sora } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/features/header";
 import { Footer } from "@/components/features/footer";
+import { ToastProvider } from "@/hooks/useToast";
 const headingFont = Sora({
   variable: "--font-heading",
   subsets: ["latin"],
@@ -40,9 +41,11 @@ export default function RootLayout({
       <body
         className={`${headingFont.variable} ${bodyFont.variable} ${geistMono.variable} antialiased flex min-h-screen flex-col`}
       >
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <ToastProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </ToastProvider>
       </body>
     </html>
   );

@@ -1,3 +1,5 @@
 // Custom React hooks
 
-export {};
+import { useToast } from "./useToast";
+
+export default useToast;
