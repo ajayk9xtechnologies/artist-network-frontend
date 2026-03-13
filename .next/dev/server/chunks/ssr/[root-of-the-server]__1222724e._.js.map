@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///home/aju/Documents/GitHub/artist-network/artist-network-frontend/app/page.tsx"],"sourcesContent":["import Image from \"next/image\";\nimport { AnimatedThemeToggler } from \"@/components/ui/animated-theme-toggler\";\n\nexport default function Home() {\n  return (\n     <>\n     <Hero />\n     </>\n  );\n}"],"names":[],"mappings":";;;;;;AAGe,SAAS;IACtB,qBACG;kBACA,cAAA,+YAAC;;;;;;AAGN"}}]
-}

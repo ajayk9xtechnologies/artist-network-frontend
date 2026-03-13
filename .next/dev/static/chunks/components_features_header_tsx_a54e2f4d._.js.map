@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///home/aju/Documents/GitHub/artist-network/artist-network-frontend/components/features/header.tsx"],"sourcesContent":["\"use client\";\n\nimport Link from \"next/link\";\nimport Image from \"next/image\";\nimport { AnimatedThemeToggler } from \"../ui\";\nimport { Menu } from 'lucide-react';\n\nexport function Header() {\n  return (\n    <header className=\"fixed top-0 left-0 right-0 z-50 \">\n      <div className=\"px-4 py-2 flex w-full items-center justify-between\">\n        <Link href=\"/\">\n          <Image src=\"/images/logo.png\" alt=\"Artist Network\" width={120} height={40} />\n        </Link>\n        <div className=\"flex items-center gap-4\">\n          {/* <AnimatedThemeToggler /> */}\n          <Menu className=\"size-12 text-foreground cursor-pointer\" />\n        </div>\n      </div>\n    </header>\n  );\n}\n"],"names":[],"mappings":";;;;;AAEA;AACA;AAEA;AALA;;;;;AAOO,SAAS;IACd,qBACE,8VAAC;QAAO,WAAU;kBAChB,cAAA,8VAAC;YAAI,WAAU;;8BACb,8VAAC,2UAAI;oBAAC,MAAK;8BACT,cAAA,8VAAC,4SAAK;wBAAC,KAAI;wBAAmB,KAAI;wBAAiB,OAAO;wBAAK,QAAQ;;;;;;;;;;;8BAEzE,8VAAC;oBAAI,WAAU;8BAEb,cAAA,8VAAC,iSAAI;wBAAC,WAAU;;;;;;;;;;;;;;;;;;;;;;AAK1B;KAdgB"}}]
-}

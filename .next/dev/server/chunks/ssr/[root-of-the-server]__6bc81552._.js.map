@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///home/aju/Documents/GitHub/artist-network/artist-network-frontend/components/homeSections/Hero.tsx"],"sourcesContent":["import Image from \"next/image\";\n\nexport default function Hero() {\n    return (\n        <section className=\"w-full h-screen\">\n            <div className=\"flex flex-row\">\n                <div className=\"basis-2/3\">\n                    <Image src=\"/images/hero.jpg\" alt=\"Hero Image\" fill className=\"object-contain\" />\n                </div>\n                <div className=\"basis-1/3\">02</div>\n            </div>\n        </section>\n    )\n}\n"],"names":[],"mappings":";;;;;AAAA;;;AAEe,SAAS;IACpB,qBACI,+YAAC;QAAQ,WAAU;kBACf,cAAA,+YAAC;YAAI,WAAU;;8BACX,+YAAC;oBAAI,WAAU;8BACX,cAAA,+YAAC,ySAAK;wBAAC,KAAI;wBAAmB,KAAI;wBAAa,IAAI;wBAAC,WAAU;;;;;;;;;;;8BAElE,+YAAC;oBAAI,WAAU;8BAAY;;;;;;;;;;;;;;;;;AAI3C"}},
-    {"offset": {"line": 73, "column": 0}, "map": {"version":3,"sources":["file:///home/aju/Documents/GitHub/artist-network/artist-network-frontend/app/page.tsx"],"sourcesContent":["\nimport Hero from \"@/components/homeSections/Hero\";\n\nexport default function Home() {\n  return (\n     <>\n     <Hero />\n     </>\n  );\n}"],"names":[],"mappings":";;;;;AACA;;;AAEe,SAAS;IACtB,qBACG;kBACA,cAAA,+YAAC,8IAAI;;;;;;AAGV"}}]
-}
