@@ -22,6 +22,13 @@ async function storeAuthTokenFromResponse(response: Response) {
         path: "/",
         maxAge: 60 * 60,      // 1h — match JWT expiry
     });
+    cookieStore.set("auth", "true", {
+        httpOnly: false,      // readable by middleware
+        secure: false,
+        sameSite: "lax",
+        path: "/",
+        maxAge: 60 * 60,
+    });
 }
 function isEmailOrPhone(emailOrPhone: string): { email: string, phone: string } {
     let email = "";

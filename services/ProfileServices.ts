@@ -117,7 +117,7 @@ export const getProfileAction = async (): Promise<ProfileState> => {
 
     try {
         const response = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/profile/fetch-user`,
+            `${process.env.NEXT_PUBLIC_API_URL}/auth/fetch-user`,
             {
                 method: "GET",
                 headers: {

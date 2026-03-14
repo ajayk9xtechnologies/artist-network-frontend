@@ -3,6 +3,7 @@ import { Mic2, UserCircle, ArrowRight, Building2, Briefcase } from "lucide-react
 import Link from "next/link";
 import RegisterForm from "./RegisterForm";
 import { useSearchParams } from "next/navigation";
+import GoogleAuth from "./GoogleAuth";
 
 type UserType = "artist" | "organization";
 
@@ -64,18 +65,22 @@ export default function Role() {
       {userType ? (
         <section>
           <RegisterForm />
+          <div className="relative my-10">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-background px-2 text-muted-foreground">or</span>
+            </div>
+          </div>
+          <GoogleAuth />
         </section>
       ) : (
         <section>
           <RoleSelectionCard />
         </section>
       )}
-{/* 
-      {userType && (
-        <section>
-          <RegisterForm />
-        </section>
-      )} */}
+ 
     </>
   );
 }

@@ -22,7 +22,6 @@ function SubmitButton() {
   );
 }
 
-
 export default function LoginForm() {
   const [state, formAction, isPending] = useActionState(
     loginWithPasswordAction,
@@ -32,7 +31,8 @@ export default function LoginForm() {
   useEffect(() => {
     if (state.success && state.message) {
       showSuccess(state.message);
-    }
+      location.href = "/hub";
+    } 
   }, [state.success, state.message, showSuccess]);
   console.log(isPending, state, "isPending");
   return (

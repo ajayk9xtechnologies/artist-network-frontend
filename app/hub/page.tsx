@@ -15,8 +15,6 @@ export default function HubPage() {
   return (
     <h1>
       Shared workspace for artists and organisations (content coming soon)
-     23
     </h1>
   );
 }
-

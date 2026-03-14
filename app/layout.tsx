@@ -38,12 +38,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        className={`${headingFont.variable} ${bodyFont.variable} ${geistMono.variable} antialiased flex min-h-screen flex-col`}
-      >
+      <body className={`${headingFont.variable} ${bodyFont.variable} ${geistMono.variable} antialiased flex min-h-screen flex-col`} >
         <ToastProvider>
           <Header />
-          <main>{children}</main>
+          <main className="pt-20">{children}</main>
           <Footer />
         </ToastProvider>
       </body>

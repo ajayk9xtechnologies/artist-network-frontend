@@ -45,8 +45,11 @@ export default function RegisterForm() {
    useEffect(() => {
     if (state.success && state.message) {
       showSuccess(state.message);
+      location.href = "/hub";
+    } else if (state.error) {
+      setError(state.error as string);
     }
-  }, [state.success, state.message, showSuccess]);
+  }, [state.success, state.message,state.error, showSuccess]);
   async function handleGenerateOtp(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
@@ -72,7 +75,6 @@ export default function RegisterForm() {
         return;
       }
       showSuccess(res.message ?? "OTP sent");
-      setStep("verify");
       setModalOpen(true);
       start();
     } catch {
@@ -90,6 +92,7 @@ export default function RegisterForm() {
       setError("Please enter OTP");
       return;
     }
+    setStep("verify");
 
     setIsVerifying(true);
     try {

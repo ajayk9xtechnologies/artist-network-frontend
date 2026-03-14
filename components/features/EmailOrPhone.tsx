@@ -21,7 +21,7 @@ export default function EmailOrPhoneField({ name }: { name: string}) {
 
   return (
     <>
-      <div className="flex items-center rounded-sm overflow-hidden focus-within:ring-2 focus-within:ring-black">  
+      <div className="flex items-center rounded-sm overflow-hidden focus-within:ring-1 focus-within:ring-blue-300">  
       {/* Hidden input carries the real submitted value */}
       <input type="hidden" name={name} value={combinedValue} required={true}/>
 
@@ -30,7 +30,7 @@ export default function EmailOrPhoneField({ name }: { name: string}) {
         <select
           value={countryCode}
           onChange={(e) => setCountryCode(e.target.value)} required={true}
-          className="w-17 h-12 border-gray-300 py-2 text-sm focus:outline-none bg-secondary"
+          className="w-17 h-12 border-gray-100 py-2 text-sm focus:outline-none bg-secondary"
         >
           {countryCodes.map((c) => (
             <option key={c.iso2} value={c.dialCode}>
@@ -47,7 +47,7 @@ export default function EmailOrPhoneField({ name }: { name: string}) {
         placeholder="Email or phone number" required={true}
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        className=" h-12 px-3 py-3 w-full bg-secondary border placeholder:text-muted-foreground"
+        className=" h-12 px-3 py-3 w-full bg-secondary border placeholder:text-muted-foreground focus:outline-none"
       />
     </div>
     </>
