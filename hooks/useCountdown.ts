@@ -9,7 +9,9 @@ export function useCountdown(initialSeconds: number) {
   useEffect(() => {
     if (!active) return;
     if (secondsLeft <= 0) {
-      setActive(false);
+      setTimeout(() => {
+        setActive(false);
+      }, 300);
       return;
     }
 

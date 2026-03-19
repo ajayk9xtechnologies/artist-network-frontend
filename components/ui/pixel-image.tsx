@@ -3,8 +3,7 @@
 import { useEffect, useMemo, useState } from "react"
 import type { StaticImageData } from "next/image"
 
-import { cn } from "@/lib/utils"
-import Image from "next/image"
+ import Image from "next/image"
 
 type Grid = {
   rows: number
@@ -101,10 +100,7 @@ export const PixelImage = ({
       {pieces.map((piece, index) => (
         <div
           key={index}
-          className={cn(
-            "absolute inset-0 transition-all ease-out",
-            isVisible ? "opacity-100" : "opacity-0"
-          )}
+          className={`absolute inset-0 transition-all ease-out ${isVisible ? "opacity-100" : "opacity-0"}`}
           style={{
             clipPath: piece.clipPath,
             transitionDelay: `${piece.delay}ms`,
@@ -116,10 +112,7 @@ export const PixelImage = ({
             width={500}
             height={500}
             alt={`Pixel image piece ${index + 1}`}
-            className={cn(
-              "z-1 h-full w-full rounded-[2.5rem] object-contain",
-              grayscaleAnimation && (showColor ? "grayscale-0" : "grayscale")
-            )}
+            className={`z-1 h-full w-full rounded-[2.5rem] object-contain ${grayscaleAnimation && (showColor ? "grayscale-0" : "grayscale")}`}
             style={{
               transition: grayscaleAnimation
                 ? `filter ${pixelFadeInDuration}ms cubic-bezier(0.4, 0, 0.2, 1)`

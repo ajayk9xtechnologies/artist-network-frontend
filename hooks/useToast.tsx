@@ -1,61 +1,78 @@
-"use client";
+import { useState, useCallback, useRef } from "react"
 
-import React, {
-  createContext,
-  useCallback,
-  useContext,
-  useState,
-} from "react";
+export type ToastType = "success" | "error" | "info" | "warning"
+export type ToastPosition =
+  | "top-left"
+  | "top-center"
+  | "top-right"
+  | "bottom-left"
+  | "bottom-center"
+  | "bottom-right"
 
-type Toast = {
-  id: number;
-  message: string;
-};
-
-type ToastContextValue = {
-  showSuccess: (message: string) => void;
-};
-
-const ToastContext = createContext<ToastContextValue | null>(null);
-
-export function ToastProvider({ children }: { children: React.ReactNode }) {
-  const [toasts, setToasts] = useState<Toast[]>([]);
-
-  const removeToast = useCallback((id: number) => {
-    setToasts((prev) => prev.filter((t) => t.id !== id));
-  }, []);
-
-  const showSuccess = useCallback((message: string) => {
-    if (!message) return;
-    const id = Date.now();
-    setToasts((prev) => [...prev, { id, message }]);
-    // Auto dismiss after 3 seconds
-    setTimeout(() => removeToast(id), 3000);
-  }, [removeToast]);
-
-  return (
-    <ToastContext.Provider value={{ showSuccess }}>
-      {children}
-      {/* Toast viewport */}
-      <div className="pointer-events-none fixed top-4 right-4 z-50 flex flex-col gap-2">
-        {toasts.map((toast) => (
-          <div
-            key={toast.id}
-            className="pointer-events-auto min-w-[220px] max-w-xs rounded-md border border-emerald-500 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-500 shadow-lg"
-          >
-            {toast.message}
-          </div>
-        ))}
-      </div>
-    </ToastContext.Provider>
-  );
+export interface Toast {
+  id: string
+  type: ToastType
+  title: string
+  message?: string
+  duration?: number
+  position?: ToastPosition
 }
 
-export function useToast() {
-  const ctx = useContext(ToastContext);
-  if (!ctx) {
-    throw new Error("useToast must be used within a ToastProvider");
-  }
-  return ctx;
+export interface ToastOptions {
+  title: string
+  message?: string
+  duration?: number
+  position?: ToastPosition
 }
 
+export function useToast(defaultPosition: ToastPosition = "top-right") {
+  const [toasts, setToasts] = useState<Toast[]>([])
+  const timeouts = useRef<Map<string, ReturnType<typeof setTimeout>>>(new Map())
+
+  const dismiss = useCallback((id: string) => {
+    setToasts((prev) => prev.filter((t) => t.id !== id))
+    const timeout = timeouts.current.get(id)
+    if (timeout) {
+      clearTimeout(timeout)
+      timeouts.current.delete(id)
+    }
+  }, [])
+
+  const show = useCallback(
+    (type: ToastType, options: ToastOptions) => {
+      const id = `toast-${Date.now()}-${Math.random().toString(36).slice(2)}`
+      const duration = options.duration ?? 4000
+      const position = options.position ?? defaultPosition
+
+      const toast: Toast = { id, type, duration, position, ...options }
+      setToasts((prev) => [...prev, toast])
+
+      if (duration > 0) {
+        const timeout = setTimeout(() => dismiss(id), duration)
+        timeouts.current.set(id, timeout)
+      }
+
+      return id
+    },
+    [defaultPosition, dismiss]
+  )
+
+  const success = useCallback(
+    (options: ToastOptions) => show("success", options),
+    [show]
+  )
+  const error = useCallback(
+    (options: ToastOptions) => show("error", options),
+    [show]
+  )
+  const info = useCallback(
+    (options: ToastOptions) => show("info", options),
+    [show]
+  )
+  const warning = useCallback(
+    (options: ToastOptions) => show("warning", options),
+    [show]
+  )
+
+  return { toasts, success, error, info, warning, dismiss }
+}

@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Inter, Sora } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/features/header";
-import { Footer } from "@/components/features/footer";
-import { ToastProvider } from "@/hooks/useToast";
+
 const headingFont = Sora({
   variable: "--font-heading",
   subsets: ["latin"],
@@ -39,11 +37,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${headingFont.variable} ${bodyFont.variable} ${geistMono.variable} antialiased flex min-h-screen flex-col`} >
-        <ToastProvider>
-          <Header />
-          <main className="pt-20">{children}</main>
-          <Footer />
-        </ToastProvider>
+         {children}
       </body>
     </html>
   );

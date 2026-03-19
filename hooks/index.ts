@@ -1,5 +1,5 @@
 // Custom React hooks
 
 import { useToast } from "./useToast";
-
-export default useToast;
+import { useCountdown } from "./useCountdown";
+export { useToast, useCountdown };

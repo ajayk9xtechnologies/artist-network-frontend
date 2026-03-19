@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Button } from "../ui";
+import Button from "@/components/ui/button";
 import { useSearchParams } from "next/navigation";
 
 export default function GoogleAuth() {
@@ -24,15 +24,12 @@ export default function GoogleAuth() {
         </p>
       )}
       <Button
-        type="button"
-        variant="google"
-        size="sm"
-        className="gap-2 w-full"
-        onClick={handleGoogle}
+        className="gap-2 w-full bg-white text-black hover:bg-gray-100"
+        onClick={() => handleGoogle()}
       >
         <Image src="/images/google.svg" alt="Google" width={20} height={20} />
-        <span>Continue with Google</span>
-      </Button>
-    </div>
-  );
+      <span>Continue with Google</span>
+    </Button>
+  </div>
+);
 }

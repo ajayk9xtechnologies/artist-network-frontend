@@ -1,7 +1,19 @@
 // Base UI components (Button, Input, Card, etc.)
 
-import { AnimatedThemeToggler } from "./animated-theme-toggler";
-import { Button } from "./button";
-import { Input } from "./input";
-
-export { AnimatedThemeToggler, Button, Input };
+import Button from "./button";
+import Input from "./input";
+ import EmailOrPhoneField from "./EmailOrPhone";
+ import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "./dialog";
+export { Button, Input, EmailOrPhoneField, Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle };
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "./input-otp";
+export { InputOTP, InputOTPGroup, InputOTPSlot };

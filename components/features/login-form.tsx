@@ -1,42 +1,59 @@
-"use client";
-import Link from "next/link";
-import GoogleAuth from "./GoogleAuth";
-import { Input, Button } from "../ui";
-import { useFormStatus } from "react-dom";
-import { useActionState, useEffect } from "react";
-import { loginWithPasswordAction, responseState } from "@/actions";
-import useToast from "@/hooks";
-import EmailOrPhoneField from "./EmailOrPhone";
+"use client"
 
-const initialState: responseState = {
-  success: false,
-  message: "",
-};
+import Link from "next/link"
+import GoogleAuth from "@/components/features/GoogleAuth"
+import { Input, Button } from "@/components/ui"
+import { useFormStatus } from "react-dom"
+import EmailOrPhoneField from "@/components/ui/EmailOrPhone"
+import { loginAction } from "@/actions/auth.actions"
+import { useActionState, useEffect } from "react"
+import { ResponseState } from "@/lib/types"
+import { useToast } from "@/hooks/useToast"
+import { ToastContainer } from "@/components/features/ToastContainer"
 
+// ✅ useFormStatus works because it's INSIDE the form
 function SubmitButton() {
-  const { pending } = useFormStatus();
+  const { pending } = useFormStatus()
+
   return (
-    <Button type="submit" className="w-full" disabled={pending}>
+    <Button
+      type="submit"
+      disabled={pending}
+      className="w-full bg-primary text-white hover:bg-primary/90"
+    >
       {pending ? "Signing in..." : "Login"}
     </Button>
-  );
+  )
 }
 
 export default function LoginForm() {
-  const [state, formAction, isPending] = useActionState(
-    loginWithPasswordAction,
-    initialState
-  );
-  const { showSuccess } = useToast();
+  const { toasts, success, error, dismiss } = useToast("top-right")
+  const [state, formAction] = useActionState<ResponseState, FormData>(
+    loginAction,
+    { success: false, message: "", status: 0 }
+  )
   useEffect(() => {
-    if (state.success && state.message) {
-      showSuccess(state.message);
-      location.href = "/hub";
-    } 
-  }, [state.success, state.message, showSuccess]);
-  console.log(isPending, state, "isPending");
+    if (!state.message) return
+
+    if (state.success) {
+      success({
+        title: "Welcome back!",
+        message: state.message,
+        position: "top-right",    // override position per toast if needed
+      })
+    } else {
+      error({
+        title: "Login failed",
+        message: state.message,
+        position: "top-right",
+      })
+    }
+  }, [state, success, error])
+  console.log("toasts", toasts)
+  console.log("state", state)
   return (
     <>
+      <ToastContainer toasts={toasts} onDismiss={dismiss} />
       <div className="w-full max-w-sm space-y-8">
         <div className="text-center">
           <h2>Welcome Back</h2>
@@ -47,20 +64,23 @@ export default function LoginForm() {
 
         <form className="space-y-4" action={formAction}>
           <EmailOrPhoneField name="emailOrPhone" />
-          <Input name="password" type="password" placeholder="Password" required={true} />
-          {state.message && state.success === false && <p className="text-sm text-red-500">{state.message}</p>}
+          <Input name="password" type="password" placeholder="Password" required />
+
           <SubmitButton />
         </form>
-
+       
+        {!state.success && state.message && <p className="text-sm text-red-500">{state.message}</p>}
         <div className="flex justify-end">
-          <button type="button" className="text-sm text-muted-foreground transition-colors hover:text-foreground" >
+          <button
+            type="button"
+            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
             Forgot password?
           </button>
         </div>
 
         <GoogleAuth />
 
-        {/* Sign up */}
         <p className="text-center text-sm text-muted-foreground">
           Don&apos;t have an account?{" "}
           <Link href="/register" className="text-primary font-semibold cursor-pointer">

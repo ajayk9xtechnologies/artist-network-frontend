@@ -1,4 +1,3 @@
-import { loginWithPasswordService, generateOtpService,verifyOtpService,registerService } from "./AuthServices";
-import { createArtistProfileAction, getProfileAction } from "./ProfileServices";
+import { loginAPI } from "./auth.service";
 
-export { loginWithPasswordService, generateOtpService, createArtistProfileAction, registerService,getProfileAction,verifyOtpService };
+export { loginAPI };
