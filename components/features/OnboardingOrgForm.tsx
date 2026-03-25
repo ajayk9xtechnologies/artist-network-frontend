@@ -59,7 +59,7 @@ const labelClass = "text-sm font-semibold text-foreground"
 function SubmitButton() {
   const { pending } = useFormStatus()
   return (
-    <Button type="submit" disabled={pending} className="bg-primary px-6 text-white hover:bg-primary/90">
+    <Button type="submit" disabled={pending} className="inputClass px-6 text-white hover:bg-primary/90">
       {pending ? "Saving..." : "Submit"}
       <ArrowRight className="ml-2 h-4 w-4" />
     </Button>
@@ -231,7 +231,7 @@ console.log("state", state)
         <form
           ref={formRef}
           action={formAction}
-          className="rounded-xl border border-border shadow-sm md:p-8"
+          className="rounded-xl card shadow-sm md:p-8"
           onSubmit={(e) => {
             if (step < TOTAL_STEPS) e.preventDefault()
           }}
@@ -256,7 +256,7 @@ console.log("state", state)
 
           {/* Step 1: Basic Info */}
           {step === 1 && (
-            <div className={`grid grid-cols-1 gap-5 md:grid-cols-2 ${panelClass}`}>
+            <div className={`grid grid-cols-1 gap-5 md:grid-cols-2 `}>
               <div className="space-y-2">
                 <label className={labelClass}>Organisation Name <span className="text-destructive">*</span></label>
                 <Input name="name" type="text" required value={name} onChange={(e) => { setName(e.target.value); clearFieldError("name") }} placeholder="Enter organisation name" className={inputClass} />
@@ -290,7 +290,7 @@ console.log("state", state)
 
           {/* Step 2: Location */}
           {step === 2 && (
-            <div className={`grid grid-cols-1 gap-5 md:grid-cols-2 ${panelClass}`}>
+            <div className={`grid grid-cols-1 gap-5 md:grid-cols-2`}>
               <div className="space-y-2">
                 <label className={labelClass}>Country <span className="text-destructive">*</span></label>
                 <Input name="country" type="text" required value={country} onChange={(e) => { setCountry(e.target.value); clearFieldError("country") }} placeholder="Enter country" className={inputClass} />
@@ -311,7 +311,7 @@ console.log("state", state)
 
           {/* Step 3: Categories */}
           {step === 3 && (
-            <div className={`space-y-5 ${panelClass}`}>
+            <div className={`space-y-5 `}>
               <div>
                 <label className={`mb-3 block ${labelClass}`}>Categories <span className="text-destructive">*</span></label>
                 <div className="relative">
@@ -319,7 +319,13 @@ console.log("state", state)
                   <Input value={categoryQuery} onChange={(e) => setCategoryQuery(e.target.value)} placeholder="Search categories..." className={`pl-11 ${inputClass}`} />
                 </div>
               </div>
-              <div className="rounded-lg border border-border bg-background/50 p-5">
+              <div
+  className="rounded-[40px] p-8"
+  style={{
+    boxShadow:
+      "inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(27, 27, 27, 0.78)",
+  }}
+>
                 <div className="flex flex-wrap gap-3">
                   {filteredCategories.map((category) => {
                     const selected = selectedCategories.includes(category)
@@ -350,7 +356,7 @@ console.log("state", state)
 
           {/* Step 4: Company Details */}
           {step === 4 && (
-            <div className={`grid grid-cols-1 gap-5 md:grid-cols-2 ${panelClass}`}>
+            <div className={`grid grid-cols-1 gap-5 md:grid-cols-2 `}>
               <div className="space-y-2">
                 <label className={labelClass}>Employee Count <span className="text-destructive">*</span></label>
                 <Input name="employeeCount" type="number" required value={employeeCount} onChange={(e) => { setEmployeeCount(e.target.value); clearFieldError("employeeCount") }} placeholder="e.g. 50" className={inputClass} />
@@ -371,7 +377,7 @@ console.log("state", state)
 
           {/* Step 5: Social Media */}
           {step === 5 && (
-            <div className={`grid grid-cols-1 gap-5 md:grid-cols-2 ${panelClass}`}>
+            <div className={`grid grid-cols-1 gap-5 md:grid-cols-2  `}>
               <div className="space-y-2">
                 <label className={labelClass}>Instagram</label>
                 <Input name="instagram" type="text" value={instagram} onChange={(e) => setInstagram(e.target.value)} placeholder="@yourprofile (optional)" className={inputClass} />
@@ -396,7 +402,7 @@ console.log("state", state)
           )}
 
           {/* Navigation Buttons */}
-          <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-between gap-4 pt-6 sm:flex-row">
             <Button 
               type="button" 
               onClick={goBack} 

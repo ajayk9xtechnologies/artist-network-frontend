@@ -45,7 +45,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           {...validationProps} // ✅ apply validation
           {...props} // ✅ props last so user can override
-          className={`${className} rounded-sm h-12 px-3 py-3 w-full bg-secondary border placeholder:text-muted-foreground mt-2`}
+          className={`${className} border border-border rounded-sm h-12 px-3 py-3 w-full bg-secondary placeholder:text-muted-foreground mt-2`}
         />
       </>
     )

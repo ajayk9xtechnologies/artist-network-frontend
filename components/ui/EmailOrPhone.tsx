@@ -21,35 +21,36 @@ export default function EmailOrPhoneField({ name }: { name: string}) {
 
   return (
     <>
-      <div className="flex items-center rounded-sm overflow-hidden focus-within:ring-1 focus-within:ring-blue-300">  
-      {/* Hidden input carries the real submitted value */}
-      <input type="hidden" name={name} value={combinedValue} required={true}/>
+      <div className="flex items-center rounded-md border border-gray-300 overflow-hidden focus-within:ring-2 focus-within:ring-primary focus-within:border-primary transition">
+  
+  {/* Hidden input */}
+  <input type="hidden" name={name} value={combinedValue} required />
 
-      {/* Country code selector — only visible in phone mode */}
-      {isPhoneMode && (
-        <select
-          value={countryCode}
-          onChange={(e) => setCountryCode(e.target.value)} required={true}
-          className="w-17 h-12 border-gray-100 py-2 text-sm focus:outline-none bg-secondary"
-        >
-          {countryCodes.map((c) => (
-            <option key={c.iso2} value={c.dialCode}>
-              {c.iso2} {c.dialCode}
-            </option>
-          ))}
-        </select>
-      )}
+  {/* Country code */}
+  {isPhoneMode && (
+    <select
+      value={countryCode}
+      onChange={(e) => setCountryCode(e.target.value)}
+      className="h-12 px-2 text-sm bg-secondary focus:outline-none border-none"
+    >
+      {countryCodes.map((c) => (
+        <option key={c.iso2} value={c.dialCode}>
+          {c.iso2} {c.dialCode}
+        </option>
+      ))}
+    </select>
+  )}
 
-      {/* Visible input (uncontrolled display value) */}
-      <input
-        type="text"
-        inputMode={isPhoneMode ? "tel" : "email"}
-        placeholder="Email or phone number" required={true}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        className=" h-12 px-3 py-3 w-full bg-secondary border placeholder:text-muted-foreground focus:outline-none"
-      />
-    </div>
+  {/* Input */}
+  <input
+    type="text"
+    inputMode={isPhoneMode ? "tel" : "email"}
+    placeholder="Email or phone number"
+    value={value}
+    onChange={(e) => setValue(e.target.value)}
+    className="h-12 px-3 w-full bg-secondary border-none focus:outline-none placeholder:text-muted-foreground"
+  />
+</div>
     </>
   );
 }

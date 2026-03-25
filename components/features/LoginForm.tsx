@@ -12,7 +12,7 @@ import { useToast } from "@/hooks/useToast"
 import { ToastContainer } from "@/components/features/ToastContainer"
 import { redirect } from "next/navigation"
 import { FormError } from "../ui/form-error"
-
+import { useRouter } from "next/navigation";
 // ✅ useFormStatus works because it's INSIDE the form
 function SubmitButton() {
   const { pending } = useFormStatus()
@@ -21,7 +21,7 @@ function SubmitButton() {
     <Button
       type="submit"
       disabled={pending}
-      className="w-full bg-primary text-white hover:bg-primary/90"
+      className="w-full btn-primary text-white"
     >
       {pending ? "Signing in..." : "Login"}
     </Button>
@@ -29,6 +29,7 @@ function SubmitButton() {
 }
 
 export default function LoginForm() {
+  const router = useRouter();
   const { toasts, success, error, dismiss } = useToast("top-right")
   const [state, formAction] = useActionState<ResponseState, FormData>(
     loginAction,
@@ -42,7 +43,7 @@ export default function LoginForm() {
         message: state.message,
         position: "top-right",    // override position per toast if needed
       })
-      redirect("/hub")
+      router.push("/hub");
     } else {
       error({
         title: "Login failed",
@@ -55,7 +56,7 @@ export default function LoginForm() {
   return (
     <>
       <ToastContainer toasts={toasts} onDismiss={dismiss} />
-      <div className="w-full max-w-sm space-y-8">
+      <div className="w-full max-w-sm space-y-8 p-6">
         <div className="text-center">
           <h2>Welcome Back</h2>
           <p className="mt-2 text-sm text-muted-foreground">
@@ -66,10 +67,9 @@ export default function LoginForm() {
         <form className="space-y-4" action={formAction}>
           <EmailOrPhoneField name="emailOrPhone" />
           <Input name="password" type="password" placeholder="Password" required />
-
           <SubmitButton />
         </form>
-       <FormError message={state.message} />
+       {!state.success && <FormError message={state.message} />}
         <div className="flex justify-end">
           <button
             type="button"
