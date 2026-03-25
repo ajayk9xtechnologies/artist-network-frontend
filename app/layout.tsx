@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Inter, Sora } from "next/font/google";
+import { Geist_Mono, Inter, Sora, DM_Sans } from "next/font/google"; // ✅ add DM_Sans
 import "./globals.css";
+import NetworkGuard from "@/components/network/NetworkGuard"
 
 const headingFont = Sora({
   variable: "--font-heading",
@@ -15,6 +16,13 @@ const bodyFont = Inter({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+// ✅ add this
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -36,8 +44,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${headingFont.variable} ${bodyFont.variable} ${geistMono.variable} antialiased flex min-h-screen flex-col`} >
-         {children}
+      <body
+        className={`${headingFont.variable} ${bodyFont.variable} ${geistMono.variable} ${dmSans.variable} antialiased flex min-h-screen flex-col`} // ✅ add dmSans.variable
+      >
+        <NetworkGuard>{children}</NetworkGuard>
       </body>
     </html>
   );

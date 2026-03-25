@@ -28,8 +28,8 @@ export default function GoogleAuth() {
         onClick={() => handleGoogle()}
       >
         <Image src="/images/google.svg" alt="Google" width={20} height={20} />
-      <span>Continue with Google</span>
-    </Button>
-  </div>
-);
+        <span>Continue with Google</span>
+      </Button>
+    </div>
+  );
 }

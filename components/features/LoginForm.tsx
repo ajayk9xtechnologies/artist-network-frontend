@@ -10,6 +10,8 @@ import { useActionState, useEffect } from "react"
 import { ResponseState } from "@/lib/types"
 import { useToast } from "@/hooks/useToast"
 import { ToastContainer } from "@/components/features/ToastContainer"
+import { redirect } from "next/navigation"
+import { FormError } from "../ui/form-error"
 
 // ✅ useFormStatus works because it's INSIDE the form
 function SubmitButton() {
@@ -34,13 +36,13 @@ export default function LoginForm() {
   )
   useEffect(() => {
     if (!state.message) return
-
-    if (state.success) {
+     if (state.success) {
       success({
         title: "Welcome back!",
         message: state.message,
         position: "top-right",    // override position per toast if needed
       })
+      redirect("/hub")
     } else {
       error({
         title: "Login failed",
@@ -49,8 +51,7 @@ export default function LoginForm() {
       })
     }
   }, [state, success, error])
-  console.log("toasts", toasts)
-  console.log("state", state)
+  
   return (
     <>
       <ToastContainer toasts={toasts} onDismiss={dismiss} />
@@ -68,8 +69,7 @@ export default function LoginForm() {
 
           <SubmitButton />
         </form>
-       
-        {!state.success && state.message && <p className="text-sm text-red-500">{state.message}</p>}
+       <FormError message={state.message} />
         <div className="flex justify-end">
           <button
             type="button"

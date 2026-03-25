@@ -10,6 +10,7 @@ export interface AuthResponseBody {
   message?: string
   status?: number
   data?: unknown
+  errors?: string[]
 }
 
 export interface APIResult {
@@ -37,5 +38,5 @@ export async function loginAPI(payload: LoginPayload): Promise<APIResult> {
     body = {}
   }
 
-  return { response, body }  // ✅ return both
+  return { response, body } 
 }

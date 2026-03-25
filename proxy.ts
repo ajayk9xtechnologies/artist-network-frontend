@@ -5,21 +5,6 @@ import type { NextRequest } from "next/server";
 export const AUTH_PAGES = ["/", "/register", "/forgot-password"] as const;
 
 /**
- * Decodes JWT payload without verification (for logging only). Payload contains userId, role.
- */
-function decodeJwtPayload(token: string): { userId?: string; role?: string } | null {
-  try {
-    const parts = token.split(".");
-    if (parts.length !== 3) return null;
-    const base64 = parts[1].replace(/-/g, "+").replace(/_/g, "/");
-    const json = atob(base64);
-    return JSON.parse(json) as { userId?: string; role?: string };
-  } catch {
-    return null;
-  }
-}
-
-/**
  * Returns true if the request has both token and auth cookies (user is authenticated).
  */
 export function isAuthenticated(request: NextRequest): boolean {
@@ -38,58 +23,40 @@ export function isAuthPage(pathname: string): boolean {
   });
 }
 
-const VALID_ROLES = ["artist", "organisation"] as const;
-
-function getHubRedirectUrl(role: string | null | undefined): string {
-  const normalized = role?.toLowerCase();
-  if (normalized && VALID_ROLES.includes(normalized as (typeof VALID_ROLES)[number])) {
-    return `/hub/${normalized}`;
-  }
-  return "/hub";
-}
-
 /** Next.js 16 proxy (replaces deprecated middleware.ts) */
 export default function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
-  const token = request.cookies.get("token")?.value;
-  const authenticated = !!(token && request.cookies.get("auth")?.value === "true");
+  const authenticated = isAuthenticated(request);
 
-  const payload = token ? decodeJwtPayload(token) : null;
-  const role = payload?.role ?? null;
-  const hubUrl = getHubRedirectUrl(role);
-
-  if (token) {
-    console.log("[proxy]", { pathname, authenticated, role, hubUrl });
-  }
-
-  // Authenticated on auth page → redirect to role-specific hub
+  // Authenticated users should not stay on auth pages.
   if (authenticated && isAuthPage(pathname)) {
-    return NextResponse.redirect(new URL(hubUrl, request.url));
+    return NextResponse.redirect(new URL("/hub", request.url));
   }
 
-  // On /hub (exact) without role → redirect to role-specific hub
-  if (authenticated && pathname === "/hub") {
-    return NextResponse.redirect(new URL(hubUrl, request.url));
-  }
-
-  // On hub without auth → redirect to home
-  if (pathname === "/hub" || pathname.startsWith("/hub/")) {
-    if (!authenticated) {
-      return NextResponse.redirect(new URL("/", request.url));
-    }
-    // Authenticated on /hub/[role] — if URL role is invalid or doesn't match token, redirect to correct hub
-    const urlRole = pathname.replace("/hub/", "").split("/")[0]?.toLowerCase();
-    const tokenRole = role?.toLowerCase();
-    const urlRoleValid = urlRole && VALID_ROLES.includes(urlRole as (typeof VALID_ROLES)[number]);
-    const roleMatches = tokenRole && urlRoleValid && tokenRole === urlRole;
-    if (!roleMatches) {
-      return NextResponse.redirect(new URL(hubUrl, request.url));
-    }
+  // Protected areas require authentication. Status-based routing is handled by layouts.
+  if (
+    (pathname === "/hub" ||
+      pathname.startsWith("/hub/") ||
+      pathname === "/onboarding" ||
+      pathname.startsWith("/onboarding/")) &&
+    !authenticated
+  ) {
+    return NextResponse.redirect(new URL("/", request.url));
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/", "/register", "/register/:path*", "/forgot-password", "/forgot-password/:path*", "/hub", "/hub/:path*"],
+  matcher: [
+    "/",
+    "/register",
+    "/register/:path*",
+    "/forgot-password",
+    "/forgot-password/:path*",
+    "/hub",
+    "/hub/:path*",
+    "/onboarding",
+    "/onboarding/:path*",
+  ],
 };

@@ -1,6 +1,6 @@
-import LoginForm from "../features/login-form";
+import LoginForm from "../features/LoginForm";
 import { PixelImage } from "../ui/pixel-image";
-import hero from "@/public/images/hero.png";
+import hero from "@/public/images/hero.jpg";
  export default function Hero() {
   return (
     <>

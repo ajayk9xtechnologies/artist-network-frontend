@@ -17,3 +17,5 @@ import {
   InputOTPSlot,
 } from "./input-otp";
 export { InputOTP, InputOTPGroup, InputOTPSlot };
+import InputError from "./input-error";
+export { InputError };
